@@ -5,49 +5,67 @@ formMain.addEventListener('submit', function(event) {
 // evita o comportamento padrão do evento submit
 event.preventDefault(); 
     console.log ('prevent default action: success');
- 
+    
 // pega o valor como string
 let num01 = document.getElementById('form-num01').value;
 let num02 = document.getElementById('form-num02').value;
+let num03 = document.getElementById('form-num03').value;
+    console.log ('convert to string: success');
 
 // Troca virgula por ponto se necessário
 let num01Coma = num01.replace(/,/g, ".");
 let num02Coma = num02.replace(/,/g, ".");
+let num03Coma = num03.replace(/,/g, ".");
     console.log ('coma > period ajust: success');
 
 // transforma em número
 let num01adj = Number(num01Coma);
 let num02adj = Number(num02Coma);
+let num03adj = Number(num03Coma);
     console.log ('normalize number: success');
 
 // calcula a área
-if (num01adj === num02adj) {
+let numAr = [num01adj, num02adj, num03adj];
+let numEnv = numAr;
 
-// manda o valor para interface
-document.getElementById('final-result').classList.remove('is-hidden');
+console.log (numEnv);
+console.log ('Array size: ' + numEnv.length);
 
-document.getElementById('final-result').scrollIntoView({
-    behavior: 'smooth', // Faz a rolagem ser suave
-    block: 'start' // Alinha o elemento ao topo da janela de visualização
-});
-
-// manda o valor para interface
-document.getElementById('div-area').innerHTML = ('Os valores são iguais');
-    console.log ('print result on html: success');
-} 
-
-else {
-    // manda o valor para interface
-document.getElementById('final-result').classList.remove('is-hidden');
-
-document.getElementById('final-result').scrollIntoView({
-    behavior: 'smooth', // Faz a rolagem ser suave
-    block: 'start' // Alinha o elemento ao topo da janela de visualização
-});
-
-// manda o valor para interface
-document.getElementById('div-area').innerHTML = ('Os valores são diferentes');
-    console.log ('print result on html: success');
+for (let i = 0; i < numEnv.length+1; i++) {
+    let modulo01 = ((i % numEnv.length)); //Calcula o módulo de i e converte para o indice correspondente na array
+    let modulo02 = (modulo01 >= numEnv.length-1) ? 0 : (modulo01+1);
+    
+    //let comp01 = (modulo01 >= numEnv.length) ? numEnv[modulo01] : numEnv[modulo01];
+    let comp01 = numEnv[modulo01];
+    let comp02 = numEnv[modulo02];
+    console.log (i + 'ª interaction');
+    console.log ('index: '+ modulo01 + ' | ' + modulo02);
+    console.log ('value: '+ comp01 + ' | ' + comp02);
+    
+    if ( (comp01 <= comp02) || (modulo02 < modulo01)) {
+        numEnv[modulo01] = comp01;
+        numEnv[modulo02] = comp02;
+        console.log(comp01, comp02);
+    } else {
+        numEnv[modulo01] = comp02;
+        numEnv[modulo02] = comp01;
+        console.log(comp01, comp02);
+    }
+    console.log ('final array: ' + numEnv);
+    
 }
 
+// manda o valor para interface
+document.getElementById('final-result').classList.remove('is-hidden');
+
+document.getElementById('final-result').scrollIntoView({
+    behavior: 'smooth', // Faz a rolagem ser suave
+    block: 'start' // Alinha o elemento ao topo da janela de visualização
 });
+
+// manda o valor para interface
+document.getElementById('p-result-01').innerHTML = (numEnv[0]);
+document.getElementById('p-result-02').innerHTML = (numEnv[2]);
+    console.log ('print result on html: success');
+
+})
