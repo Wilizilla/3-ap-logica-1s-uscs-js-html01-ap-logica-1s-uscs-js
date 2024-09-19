@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organizador de números</title>
+    <title>Area do quadrado cm²</title>
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="icon" href="assets/img/kaioh-planet.svg">
 
@@ -19,7 +19,7 @@
     
         <div class="navbar-start mt-3 ml-4">
             <h1 class="title is-6 has-text-light has-text-weight-normal	"> 
-                <b>AP2 | Atividade 3.2</b> - Ordenar números
+                <b>AP2 | Atividade 3.3</b> - Multiplos de 7
             </h1>
         </div>
         
@@ -41,16 +41,14 @@
                 <form id="form-01" method="post" class="form">
                     <div>
                         <h3 class="title is-4 pb-4 has-text-left">
-                            Entrada
+                            Entrada 
                         </h3>
                     </div>
                     
-                    <div id="result-div" class="is-align-content-center	">
+                    <div id="result-num" class="is-align-content-center	">
                         
-                        <label for="form-label" class="mt-4 pl-1">Maior e menor :</label>
+                        <label for="form-label" class="mt-4 pl-1">Número:</label>
                         <input class="input is-medium has-text-right mb-4" id="form-num01" placeholder="Digite o primeiro número" inputmode="numeric" type="number" step="0.00000001">
-                        <input class="input is-medium has-text-right mb-4" id="form-num02" placeholder="Digite o segundo número" inputmode="numeric" type="number" step="0.00000001">
-                        <input class="input is-medium has-text-right mb-4" id="form-num03" placeholder="Digite o terceiro número" inputmode="numeric" type="number" step="0.00000001">
                         <span class="icon-text has-text-danger"> 
                             <span class="is-small is-size-7 is-hidden mb-4" id="n1-error"></span>
                         </span>
@@ -58,7 +56,7 @@
                     </div>
 
                     <button id="submit-button" type="submit" class="button is-primary is-fullwidth has-text-white mt-4">
-                    <span>Enviar dados</span>
+                    <span>Calcular</span>
                     </button>
 
                 </form>
@@ -70,16 +68,14 @@
             <div id="final-result" class="column box is-4 mx-3 mt-6 mb-5 p-5 pt-6 is-hidden">
                     <div>
                         <h3 class="title is-4 pb-4 has-text-left">
-                            Resultado
+                            Saída
                         </h3>
                     </div>
                     
                     <div id="title-decoration " >
                         <div class="is-vcentered column block has-background-white-ter">
-                            <p>Menor número: <span id="p-result-01" class="is-size-4 is-align-content-center">--</span></p>
-                            <p>Maio número: <span id="p-result-02" class="is-size-4 is-align-content-center">--</span></p>
-                            
-                            
+                            <p></p> Resultado:</p>
+                            <p id="div-area" class="is-size-4 is-align-content-center">--</p>
                         </div>
                     </div>                    
             </div> 

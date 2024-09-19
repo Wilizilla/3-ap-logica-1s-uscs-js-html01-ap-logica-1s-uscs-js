@@ -23,13 +23,13 @@ let num01adj = Number(num01Coma);
 let num02adj = Number(num02Coma);
 let num03adj = Number(num03Coma);
     console.log ('normalize number: success');
+    console.log ('');
 
 // calcula a área
 let numAr = [num01adj, num02adj, num03adj];
 let numEnv = numAr;
-
-console.log (numEnv);
-console.log ('Array size: ' + numEnv.length);
+console.log ('Original Array: ' + numEnv);
+console.log ('' );
 
 for (let i = 0; i < numEnv.length+1; i++) {
     let modulo01 = ((i % numEnv.length)); //Calcula o módulo de i e converte para o indice correspondente na array
@@ -38,20 +38,22 @@ for (let i = 0; i < numEnv.length+1; i++) {
     //let comp01 = (modulo01 >= numEnv.length) ? numEnv[modulo01] : numEnv[modulo01];
     let comp01 = numEnv[modulo01];
     let comp02 = numEnv[modulo02];
-    console.log (i + 'ª interaction');
+    console.log (i + 'st interaction');
     console.log ('index: '+ modulo01 + ' | ' + modulo02);
     console.log ('value: '+ comp01 + ' | ' + comp02);
     
     if ( (comp01 <= comp02) || (modulo02 < modulo01)) {
         numEnv[modulo01] = comp01;
         numEnv[modulo02] = comp02;
-        console.log(comp01, comp02);
+        
     } else {
         numEnv[modulo01] = comp02;
         numEnv[modulo02] = comp01;
-        console.log(comp01, comp02);
+        
     }
-    console.log ('final array: ' + numEnv);
+    console.log ('Array: ' + numEnv);
+    console.log ('');
+
     
 }
 
