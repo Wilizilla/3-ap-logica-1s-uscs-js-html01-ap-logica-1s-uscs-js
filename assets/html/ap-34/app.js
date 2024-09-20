@@ -7,18 +7,42 @@ event.preventDefault();
     console.log ('prevent default action: success');
  
 // pega o valor como string
-let num01 = document.getElementById('form-num01').value;
+let birthDay = document.getElementById('form-num01').value;
 
-// Troca virgula por ponto se necessário
-let num01Coma = num01.replace(/,/g, ".");
-    console.log ('coma > period ajust: success');
+let valueTempBd = new Date(birthDay);
+console.log(typeof valueTempBd);
+console.log(valueTempBd);
 
-// transforma em número
-let num01adj = Number(num01Coma);
-    console.log ('normalize number: success');
+let valueBirth = valueTempBd.getFullYear('pt-BR');
+console.log(typeof valueBirth);
+console.log(valueBirth);
+
+let valueTemp = new Date();
+let valueToday = valueTemp.getFullYear();
+console.log(typeof valueToday);
+console.log(valueToday);
+
+let YearOld = valueToday - valueBirth;
+console.log(typeof YearOld);
+console.log(YearOld);
+
+let msg;
+
+if (YearOld < 18) {
+    msg = ('É necessário ter mais de 18 anos para doar sangue.')
+} else if (YearOld > 67) {
+    msg = ('É necessário ter menos que 67 anos para doar sangue')
+} else {
+    msg = ('Você pode doar sangue')
+}
+
+/* console.log (getFullYear.valueBirth);
+console.log(valueBirth);
+console.log(typeof valueBirth);
+ */
 
 // calcula a área
-if ((num01adj % 7) == 0) {
+
 
 // manda o valor para interface
 document.getElementById('final-result').classList.remove('is-hidden');
@@ -29,22 +53,7 @@ document.getElementById('final-result').scrollIntoView({
 });
 
 // manda o valor para interface
-document.getElementById('div-area').innerHTML = ('Multiplo de 7');
+document.getElementById('div-area').innerHTML = (msg);
     console.log ('print result on html: success');
-} 
-
-else {
-    // manda o valor para interface
-document.getElementById('final-result').classList.remove('is-hidden');
-
-document.getElementById('final-result').scrollIntoView({
-    behavior: 'smooth', // Faz a rolagem ser suave
-    block: 'start' // Alinha o elemento ao topo da janela de visualização
-});
-
-// manda o valor para interface
-document.getElementById('div-area').innerHTML = ('<b>Não</b> é multiplo de 7');
-    console.log ('print result on html: success');
-}
 
 });

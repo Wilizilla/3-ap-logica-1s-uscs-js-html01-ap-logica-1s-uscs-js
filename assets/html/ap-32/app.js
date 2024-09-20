@@ -31,6 +31,10 @@ let numEnv = numAr;
 console.log ('Original Array: ' + numEnv);
 console.log ('' );
 
+let controlTime = ((numEnv.length) * (numEnv.length - 1)); // formula para descobrir quantas trocas terão de ser realizadas 
+console.log ('Control Time: ' + controlTime);
+console.log ('' );
+
 for (let i = 0; i < numEnv.length+1; i++) {
     let modulo01 = ((i % numEnv.length)); //Calcula o módulo de i e converte para o indice correspondente na array
     let modulo02 = (modulo01 >= numEnv.length-1) ? 0 : (modulo01+1);
@@ -53,10 +57,8 @@ for (let i = 0; i < numEnv.length+1; i++) {
     }
     console.log ('Array: ' + numEnv);
     console.log ('');
-
     
 }
-
 // manda o valor para interface
 document.getElementById('final-result').classList.remove('is-hidden');
 
