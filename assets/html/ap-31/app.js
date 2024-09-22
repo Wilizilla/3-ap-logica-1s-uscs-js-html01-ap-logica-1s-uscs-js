@@ -20,7 +20,7 @@ let num01adj = Number(num01Coma);
 let num02adj = Number(num02Coma);
     console.log ('normalize number: success');
 
-// calcula a área
+// Compara o svalores
 if (num01adj === num02adj) {
 
 // manda o valor para interface
