@@ -17,7 +17,7 @@ let num01Coma = num01.replace(/,/g, ".");
 let num01adj = Number(num01Coma);
     console.log ('normalize number: success');
 
-// calcula a área
+// verifica se é multiplo de 7
 if ((num01adj % 7) == 0) {
 
 // manda o valor para interface

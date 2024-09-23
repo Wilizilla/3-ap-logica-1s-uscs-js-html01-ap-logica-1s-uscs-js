@@ -25,30 +25,34 @@ let num03adj = Number(num03Coma);
     console.log ('normalize number: success');
     console.log ('---');
 
-// calcula a área
+// transforma em array
 let numAr = [num01adj, num02adj, num03adj];
 let numEnv = numAr;
 console.log ('Original Array: ' + numEnv);
 console.log ('---' );
 
-let controlTime = ((numEnv.length) * (numEnv.length - 1)); // formula para descobrir quantas trocas terão de ser realizadas 
+// formula para descobrir quantas analises terão de ser realizadas 
+let controlTime = ((numEnv.length) * (numEnv.length - 1)); 
 console.log ('Control Time: ' + controlTime);
 console.log ('---' );
 
-for (let i = 0; i < numEnv.length+1; i++) {
+// configura o laço 
+for (let i = 0; i < controlTime; i++) {
+    
+    // configura o laço 
     let modulo01 = ((i % numEnv.length)); //Calcula o módulo de i e converte para o indice correspondente na array
     let modulo02 = (modulo01 >= numEnv.length-1) ? 0 : (modulo01+1);
     
+    // configura qual par de numeros será analisado em cada interação
     let comp01 = numEnv[modulo01];
     let comp02 = numEnv[modulo02];
-    console.log (i + 'st interaction');
+    console.log ((i+1) + 'st interaction');
     console.log ('index: '+ modulo01 + ' | ' + modulo02);
     console.log ('value: '+ comp01 + ' | ' + comp02);
     
     if ( (comp01 <= comp02) || (modulo02 < modulo01)) {
         numEnv[modulo01] = comp01;
         numEnv[modulo02] = comp02;
-        
     } else {
         numEnv[modulo01] = comp02;
         numEnv[modulo02] = comp01;      

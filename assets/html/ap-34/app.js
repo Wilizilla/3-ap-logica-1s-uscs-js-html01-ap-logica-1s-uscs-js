@@ -28,9 +28,9 @@ console.log(YearOld);
 
 let msg;
 
-if (YearOld < 18) {
+if (YearOld <= 18) {
     msg = ('É necessário ter mais de 18 anos para doar sangue.')
-} else if (YearOld > 67) {
+} else if (YearOld >= 68) {
     msg = ('É necessário ter menos que 67 anos para doar sangue')
 } else {
     msg = ('Você pode doar sangue')
